@@ -5,7 +5,7 @@ node {
     def BUILD_NUMBER=env.BUILD_NUMBER
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
-    export SFDX_AUDIENCE_URL=https://test.salesforce.com/
+    def SFDX_AUDIENCE_URL=https://test.salesforce.com/
 
     def HUB_ORG=env.HUB_ORG_DH
     def SFDC_HOST = env.SFDC_HOST_DH
