@@ -11,7 +11,8 @@ node {
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
     def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
     def JWT_KEY_FILE=env.JWT_KEY_FILE_DH
-
+    
+    println 'BUILD_NUMBER is' BUILD_NUMBER
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     println HUB_ORG
@@ -35,8 +36,9 @@ node {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }else{
+		    rc = bat returnstatus:true,script:"sfdx force:auth:jwt:grant --clientid 3MVG9BM7anZT_gV4P0LNrEpvP1lsJQVZRWLEY24Dmd8XMBdRJoTF7GD4cIHY9R7OmymEqZKp0ldpsQpO9oIsO --jwtkeyfile server.key --username jitendra.bhagat@sasktel.com.jbdevint --instanceurl https://sasktel--jbdevint.my.salesforce.com/ --setdefaultdevhubusername"
                 // rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
-		rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile "${JWT_KEY_FILE}" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+		//rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile "${JWT_KEY_FILE}" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
 		  //  rc = bat returnStatus: true, script: ""${toolbelt}" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"    
             }
 		println rc
