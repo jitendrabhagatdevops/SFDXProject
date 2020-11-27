@@ -19,6 +19,21 @@ node {
     println CONNECTED_APP_CONSUMER_KEY
     println JWT_KEY_FILE
     def toolbelt = tool 'toolbelt'
+	
+	echo "Retrieve Metadata from Developer instance"
+	echo "Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml"
+	sfdx force:mdapi:retrieve -r tmp -u pathtocode -k manifest/package.xml
+	echo "Unzip results"
+	echo "Command - unzip -o tmp/unpackaged.zip -d manifest"
+	unzip -o tmp/unpackaged.zip -d manifest
+	echo "delete zipped result retrieved"
+	rm tmp/unpackaged.zip
+	echo "Move unzipped content to folder up"
+	mv manifest/unpackaged/* manifest 
+	rm -r manifest/unpackaged
+	echo "Convert Manifest to SFDX format Source"
+	sfdx force:mdapi:convert --rootdir "manifest"
+
 
     stage('checkout source') {
         // when running in multi-branch job, so one must issue this command
