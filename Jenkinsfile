@@ -20,10 +20,10 @@ node {
     println JWT_KEY_FILE
     def toolbelt = tool 'toolbelt'
 	
-	println 'Retrieve Metadata from Developer instance'
-	println 'Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml'
-	rc = bat returnstatus:true,script:"sfdx force:mdapi:retrieve -r tmp -u pathtocode -k manifest/package.xml"
-	println 'Unzip results'
+	//println 'Retrieve Metadata from Developer instance'
+	//println 'Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml'
+	//rc = bat returnstatus:true,script:"sfdx force:mdapi:retrieve -r tmp -u pathtocode -k manifest/package.xml"
+	//println 'Unzip results'
 	//println 'Command - unzip -o tmp/unpackaged.zip -d manifest'
 	//unzip -o tmp/unpackaged.zip -d manifest
 	//println 'delete zipped result retrieved'
