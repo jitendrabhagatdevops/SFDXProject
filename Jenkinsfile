@@ -24,15 +24,15 @@ node {
 	println 'Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml'
 	rc = bat returnstatus:true,script:"sfdx force:mdapi:retrieve -r tmp -u pathtocode -k manifest/package.xml"
 	println 'Unzip results'
-	println 'Command - unzip -o tmp/unpackaged.zip -d manifest'
-	unzip -o tmp/unpackaged.zip -d manifest
-	println 'delete zipped result retrieved'
-	rm tmp/unpackaged.zip
-	println 'Move unzipped content to folder up'
-	mv manifest/unpackaged/* manifest 
-	rm -r manifest/unpackaged
-	println 'Convert Manifest to SFDX format Source'
-	rc = bat returnstatus:true,script:"sfdx force:mdapi:convert --rootdir "manifest""
+	//println 'Command - unzip -o tmp/unpackaged.zip -d manifest'
+	//unzip -o tmp/unpackaged.zip -d manifest
+	//println 'delete zipped result retrieved'
+	//rm tmp/unpackaged.zip
+	//println 'Move unzipped content to folder up'
+	//mv manifest/unpackaged/* manifest 
+	//rm -r manifest/unpackaged
+	//println 'Convert Manifest to SFDX format Source'
+	//rc = bat returnstatus:true,script:"sfdx force:mdapi:convert --rootdir "manifest""
 
 
     stage('checkout source') {
