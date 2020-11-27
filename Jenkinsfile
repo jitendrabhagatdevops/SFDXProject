@@ -40,8 +40,7 @@ node {
 		//rc = bat returnStatus: true, script: "sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile "${JWT_KEY_FILE}" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
 		  //  rc = bat returnStatus: true, script: ""${toolbelt}" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"    
             }
-		println rc
-           // if (rc != 0) { error 'hub org authorization failed' }
+            if (rc != 0) { error 'hub org authorization failed' }
 			
 			// need to pull out assigned username
 			if (isUnix()) {
@@ -51,7 +50,7 @@ node {
 		           rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}
 			  
-            printf rmsg
+            //printf rmsg
             println('Hello from a Job DSL script!')
             println(rmsg)
         }
