@@ -12,7 +12,6 @@ node {
     def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
     def JWT_KEY_FILE=env.JWT_KEY_FILE_DH
     
-    println 'BUILD_NUMBER is' BUILD_NUMBER
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
     println HUB_ORG
