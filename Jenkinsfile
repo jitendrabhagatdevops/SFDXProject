@@ -20,19 +20,19 @@ node {
     println JWT_KEY_FILE
     def toolbelt = tool 'toolbelt'
 	
-	echo "Retrieve Metadata from Developer instance"
-	echo "Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml"
+	println 'Retrieve Metadata from Developer instance'
+	println 'Command - sfdx force:mdapi:retrieve -r metadata -u pathtocode -k manifest/package.xml'
 	rc = bat returnstatus:true,script:"sfdx force:mdapi:retrieve -r tmp -u pathtocode -k manifest/package.xml"
-	echo "Unzip results"
-	echo "Command - unzip -o tmp/unpackaged.zip -d manifest"
+	println 'Unzip results'
+	println 'Command - unzip -o tmp/unpackaged.zip -d manifest'
 	unzip -o tmp/unpackaged.zip -d manifest
-	echo "delete zipped result retrieved"
+	println 'delete zipped result retrieved'
 	rm tmp/unpackaged.zip
-	echo "Move unzipped content to folder up"
+	println 'Move unzipped content to folder up'
 	mv manifest/unpackaged/* manifest 
 	rm -r manifest/unpackaged
-	echo "Convert Manifest to SFDX format Source"
-	 rc = bat returnstatus:true,script:"sfdx force:mdapi:convert --rootdir "manifest""
+	println 'Convert Manifest to SFDX format Source'
+	rc = bat returnstatus:true,script:"sfdx force:mdapi:convert --rootdir "manifest""
 
 
     stage('checkout source') {
