@@ -48,11 +48,16 @@ node {
 			}else{
 			  // rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 		           rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
+				
+			   rmsg2 = bat returnStdout: true, script: "sfdx force:mdapi:deploy:report -u jitendra.bhagat@sasktel.com.jbdevint -i ${HUB_ORG}"
+
 			}
 			  
             //printf rmsg
             println('Hello from a Job DSL script!')
             println(rmsg)
+	    println('rmsg2 = ')
+	    println(rmsg)
         }
     }
 }
