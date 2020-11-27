@@ -49,7 +49,7 @@ node {
 			  // rmsg = bat returnStdout: true, script: "\"${toolbelt}\" force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 		           rmsg = bat returnStdout: true, script: "sfdx force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 			}
-		 rmsg2 = bat returnStdout: true, script: "sfdx force:mdapi:deploy:report -u jitendra.bhagat@sasktel.com.jbdevint -i ${HUB_ORG}"
+		// rmsg2 = bat returnStdout: true, script: "sfdx force:mdapi:deploy:report -u jitendra.bhagat@sasktel.com.jbdevint -i ${HUB_ORG}"
 		//sfdx force:mdapi:retrieve -k retrieve/package.xml -r . -u <username>
 	  
   
